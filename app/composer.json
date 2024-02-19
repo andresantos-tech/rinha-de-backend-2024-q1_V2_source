@@ -1,0 +1,14 @@
+{
+    "require": {
+        "php": ">=8.2",
+        "ext-pdo": "*",
+        "spiral/roadrunner-http": "^3.4",
+        "nyholm/psr7": "^1.8",
+        "league/route": "^5.1"
+    },
+    "autoload": {
+        "files": [
+            "./helpers.php"
+        ]
+    }
+}

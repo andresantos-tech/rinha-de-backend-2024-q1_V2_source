@@ -1,0 +1,8 @@
+### Extrato
+GET http://localhost:9999/clientes/1/extrato
+Content-Type: application/json
+
+
+### Extrato (404)
+GET http://localhost:9999/clientes/6/extrato
+Content-Type: application/json

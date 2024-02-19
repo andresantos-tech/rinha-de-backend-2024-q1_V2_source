@@ -1,0 +1,2 @@
+#!/bin/bash
+docker-compose exec --user $(id -u):$(id -g) rinha_v2_app1 /usr/local/bin/php $@

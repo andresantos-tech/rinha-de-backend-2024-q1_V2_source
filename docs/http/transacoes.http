@@ -1,0 +1,9 @@
+### Criar transação
+POST http://localhost:9999/clientes/5/transacoes
+Content-Type: application/json
+
+{
+  "valor": 100,
+  "tipo" : "d",
+  "descricao" : "descricao"
+}

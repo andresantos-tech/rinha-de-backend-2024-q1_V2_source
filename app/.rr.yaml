@@ -1,0 +1,20 @@
+version: '3'
+
+rpc:
+  listen: 'tcp://127.0.0.1:6001'
+
+http:
+  address: '0.0.0.0:3000'
+  pool:
+    debug: true
+    num_workers: 1
+    supervisor:
+      max_worker_memory: 100
+
+server:
+  command: 'php app.php'
+  relay: pipes
+
+logs:
+  mode: development
+  level: debug
