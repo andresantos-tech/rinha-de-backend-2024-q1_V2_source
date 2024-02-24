@@ -6,15 +6,15 @@ rpc:
 http:
   address: '0.0.0.0:3000'
   pool:
-    debug: true
+    debug: false
     num_workers: 1
     supervisor:
-      max_worker_memory: 100
+      max_worker_memory: 50
 
 server:
   command: 'php app.php'
   relay: pipes
 
 logs:
-  mode: development
-  level: debug
+  mode: production
+  level: error

@@ -2,6 +2,7 @@
     "require": {
         "php": ">=8.2",
         "ext-pdo": "*",
+        "ext-curl": "*",
         "spiral/roadrunner-http": "^3.4",
         "nyholm/psr7": "^1.8",
         "league/route": "^5.1"

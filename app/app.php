@@ -18,14 +18,13 @@ $psr7 = new PSR7Worker($worker, $factory,$factory, $factory);
 
 $db = getDbConnection();
 
-// https://github.com/thephpleague/route
-// https://route.thephpleague.com/5.x/strategies/
-    // https://github.com/thephpleague/route/issues/164
+$warmUp = null;
+
 $router = (new Router())->setStrategy(new JsonStrategy($factory));
 
 $router->get(
     '/clientes/{id:\d}/extrato',
-    static function(ServerRequestInterface $request, array $args) use(&$db): array {
+    static function(ServerRequestInterface $request, array $args) use($db): array {
         $id = (int) $args['id'];
         $account = getUser($db, $id);
 
@@ -54,7 +53,20 @@ $router->post(
             throw new NotFoundException();
         }
 
+        if ( !($payload = validateInputTransaction($request->getBody()->getContents())) ) {
+            throw new UnprocessableEntityException();
+        }
 
+        $result = createTransaction($db, $id, $payload);
+
+        if (!$result['success']) {
+            throw new UnprocessableEntityException();
+        }
+
+        return [
+            'limite' => $result['limit_amount'],
+            'saldo' => $result['current_balance'],
+        ];
     }
 );
 
