@@ -30,11 +30,13 @@ services:
         hard: 1000000
     volumes:
       - ./app:/app
+      - ./.docker/app/entrypoint.sh:/usr/local/bin/entrypoint.sh:exec
 #      - ./.docker/app/99-php.ini:/usr/local/etc/php/conf.d/99-php.ini
+    command: chmod a+x /usr/local/bin/entrypoint.sh && /usr/local/bin/entrypoint.sh
     deploy:
       resources:
         limits:
-          cpus: '0.4'
+          cpus: '0.3'
           memory: '150MB'
 
   rinha_v2_app2:
@@ -52,11 +54,12 @@ services:
       - "5432:5432"
     volumes:
       - ./.docker/postgres/init.sql:/docker-entrypoint-initdb.d/01-init.sql
-    command: postgres -c max_connections=30 -c shared_buffers=128MB -c synchronous_commit=off -c fsync=off -c full_page_writes=off
+      - ./.docker/postgres/create_function.sql:/docker-entrypoint-initdb.d/05-create_function.sql
+    command: postgres -c max_connections=30 -c shared_buffers=128MB -c synchronous_commit=off -c fsync=off -c full_page_writes=off -c log_checkpoints=off
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: '0.7'
           memory: '150MB'
 
 networks:
