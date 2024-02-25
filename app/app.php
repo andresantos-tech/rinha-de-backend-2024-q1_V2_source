@@ -18,8 +18,6 @@ $psr7 = new PSR7Worker($worker, $factory,$factory, $factory);
 
 $db = getDbConnection();
 
-$warmUp = null;
-
 $router = (new Router())->setStrategy(new JsonStrategy($factory));
 
 $router->get(
@@ -45,21 +43,19 @@ $router->get(
 
 $router->post(
     '/clientes/{id:\d}/transacoes',
-    static function(ServerRequestInterface $request, array $args) use(&$db): array {
-        $id = (int) $args['id'];
-        $account = getUser($db, $id);
-
-        if (!$account) {
-            throw new NotFoundException();
-        }
-
+    static function(ServerRequestInterface $request, array $args) use($db): array {
         if ( !($payload = validateInputTransaction($request->getBody()->getContents())) ) {
             throw new UnprocessableEntityException();
         }
 
+        $id = (int) $args['id'];
         $result = createTransaction($db, $id, $payload);
 
-        if (!$result['success']) {
+        if ($result['status'] === -1) {
+            throw new NotFoundException();
+        }
+
+        if ($result['status'] === -2) {
             throw new UnprocessableEntityException();
         }
 
