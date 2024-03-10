@@ -5,7 +5,7 @@
 <img src="./images/postgres.svg" alt="logo postgres" width="100" height="auto" >
 
 <img src="./images/RoadRunner.png" alt="logo RoadRunner" width="200" height="auto" align="left" style="margin: 21px 30px 0 0;" />
-<br>
+<br><br>
 
 Nova submissão para testar quatro coisas diferentes [do que tinha feito antes](https://github.com/zanfranceschi/rinha-de-backend-2024-q1/tree/main/participantes/andresantos-tech-PHP):
 - Impacto de performance ao remover o web framework [Spiral](https://spiral.dev/) [baseado na submissão do Gianluca Bine (Pr3d4dor)]
