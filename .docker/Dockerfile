@@ -33,11 +33,13 @@ RUN install-php-extensions \
     redis
 
 COPY ./app /app
+COPY ./app/entrypoint.sh /usr/bin/entrypoint.sh
+RUN chmod a+x /usr/bin/entrypoint.sh
 
 WORKDIR /app
 
 EXPOSE 3000
 
-CMD ["/usr/local/bin/rr", "serve", "-c", ".rr.yaml"]
+CMD ["/usr/bin/entrypoint.sh"]
 
 # docker build -t devnote/php-8.2-rr:rinha-backend-v1 .

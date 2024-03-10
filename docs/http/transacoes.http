@@ -3,7 +3,7 @@ POST http://localhost:9999/clientes/1/transacoes
 Content-Type: application/json
 
 {
-  "valor": "800000000",
+  "valor": "80000",
   "tipo" : "d",
   "descricao" : "descricao"
 }

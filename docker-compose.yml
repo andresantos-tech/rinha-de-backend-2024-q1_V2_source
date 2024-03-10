@@ -30,9 +30,6 @@ services:
         hard: 1000000
     volumes:
       - ./app:/app
-      - ./.docker/app/entrypoint.sh:/usr/local/bin/entrypoint.sh:exec
-#      - ./.docker/app/99-php.ini:/usr/local/etc/php/conf.d/99-php.ini
-    command: chmod a+x /usr/local/bin/entrypoint.sh && /usr/local/bin/entrypoint.sh
     deploy:
       resources:
         limits:
