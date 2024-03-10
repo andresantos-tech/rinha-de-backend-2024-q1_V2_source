@@ -3,7 +3,7 @@
 .local
 output
 
-./executar-teste-local.ps1
-./executar-teste-local.sh
-./gatling-text-report.sh
-./load-test
+executar-teste-local.ps1
+executar-teste-local.sh
+gatling-text-report.sh
+load-test/
