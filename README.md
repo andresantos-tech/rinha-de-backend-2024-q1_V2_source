@@ -37,7 +37,7 @@ O motivo disso é que, como existem duas APIs, as dependências são instaladas 
 <hr>
 
 ### Desenvolvido por: André Santos
-[![twitter/X](https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=X&logoColor=white)](https://github.com/andresantos-tech)
+[![twitter/X](https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=X&logoColor=white)](https://twitter.com/andresantos_eu)
 [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/andresantos-tech/)
 [![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/andresantos-tech)
 
