@@ -20,7 +20,7 @@ services:
 
   rinha_v2_app1: &app1
     container_name: rinha_v2_app1
-    image: devnote/php-8.2-rr:rinha-backend-v1
+    image: devnote/php-8.3-rr:rinha-backend-v2
     build: .docker
     depends_on:
       - rinha_v2_postgres

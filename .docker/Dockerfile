@@ -1,7 +1,7 @@
 FROM ghcr.io/roadrunner-server/roadrunner:2023.3 AS roadrunner
 FROM composer:2 AS composer
 FROM mlocati/php-extension-installer as php-installer
-FROM php:8.2-cli
+FROM php:8.3-cli
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
@@ -43,3 +43,4 @@ EXPOSE 3000
 CMD ["/usr/bin/entrypoint.sh"]
 
 # docker build -t devnote/php-8.2-rr:rinha-backend-v1 .
+# docker build -t devnote/php-8.3-rr:rinha-backend-v2 .
